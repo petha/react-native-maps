@@ -47,12 +47,12 @@
 
 - (MKMapRect) boundingMapRect
 {
-    return self.tileOverlay.boundingMapRect;
+    return self.tileRect;
 }
 
 - (BOOL)canReplaceMapContent
 {
-    return self.tileOverlay.canReplaceMapContent;
+    return self.hidesMap;
 }
 
 @end

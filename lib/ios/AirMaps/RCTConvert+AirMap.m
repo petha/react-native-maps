@@ -27,6 +27,20 @@
   };
 }
 
++ (MKMapRect)MKMapRect:(id)json
+{
+    
+    CLLocationCoordinate2D coordinate1 = CLLocationCoordinate2DMake(
+                                                                    [self CLLocationDegrees:json[@"minLat"]],
+                                                                    [self CLLocationDegrees:json[@"minLon"]]);
+    CLLocationCoordinate2D coordinate2 = CLLocationCoordinate2DMake(
+                                                                    [self CLLocationDegrees:json[@"maxLat"]],
+                                                                    [self CLLocationDegrees:json[@"maxLon"]]);
+    MKMapPoint p1 = MKMapPointForCoordinate (coordinate1);
+    MKMapPoint p2 = MKMapPointForCoordinate (coordinate2);
+    return MKMapRectMake(fmin(p1.x,p2.x), fmin(p1.y,p2.y), fabs(p1.x-p2.x), fabs(p1.y-p2.y));
+}
+
 RCT_ENUM_CONVERTER(MKMapType, (@{
   @"standard": @(MKMapTypeStandard),
   @"satellite": @(MKMapTypeSatellite),

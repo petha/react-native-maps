@@ -24,7 +24,8 @@
 @property (nonatomic, strong) MKTileOverlayRenderer *renderer;
 
 @property (nonatomic, copy) NSString *urlTemplate;
-
+@property (nonatomic, assign) MKMapRect tileRect;
+@property (nonatomic, assign) BOOL hidesMap;
 #pragma mark MKOverlay protocol
 
 @property(nonatomic, readonly) CLLocationCoordinate2D coordinate;
